@@ -1,9 +1,9 @@
 terraform {
-  required_version = ">=1.3.0"
+  required_version = ">=1.6.0"
   required_providers {
     azurerm = {
       "source" = "hashicorp/azurerm"
-      version  = "3.43.0"
+      version  = "3.85.0"
     }
   }
   cloud {
@@ -27,7 +27,7 @@ resource "random_string" "uniquestring" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "811-704dc2c7-provide-continuous-delivery-with-gith"
+  name     = "teststorageresource"
   location = "eastus"
 }
 
