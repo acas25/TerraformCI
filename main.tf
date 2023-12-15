@@ -27,7 +27,7 @@ resource "random_string" "uniquestring" {
 }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "811-704dc2c7-provide-continuous-delivery-with-gith"
+  name     = "teststorageresource"
   location = "eastus"
 }
 
