@@ -16,7 +16,6 @@ resource "azurerm_network_interface" "main" {
     private_ip_address_allocation = "Dynamic"
   }
 }
-
 resource "azurerm_virtual_machine" "main" {
   name                  = "${var.vm_name}-${random_string.random.result}"
   location            = var.location
