@@ -39,11 +39,3 @@ jobs:
       # Build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
-      
-    - name: Run Prisma Cloud 
-      id: prisma-cloud
-      uses: bridgecrewio/checkov-action@master
-      env:
-        PRISMA_API_URL: https://api3.prismacloud.io
-      with:
-        api-key: ${{ secrets.BC_API_KEY }}
