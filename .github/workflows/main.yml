@@ -39,10 +39,6 @@ jobs:
       # Build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
-
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v2
       
     - name: Run Prisma Cloud 
       id: prisma-cloud
