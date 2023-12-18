@@ -22,14 +22,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Run Prisma Cloud 
-      id: prisma-cloud
-      uses: bridgecrewio/checkov-action@master
-      env:
-        PRISMA_API_URL: https://api3.prismacloud.io
-      with:
-        api-key: ${{ secrets.BC_API_KEY }}
-
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
@@ -47,3 +39,11 @@ jobs:
       # Build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
+
+    - name: Run Prisma Cloud 
+      id: prisma-cloud
+      uses: bridgecrewio/checkov-action@master
+      env:
+        PRISMA_API_URL: https://api3.prismacloud.io
+      with:
+        api-key: ${{ secrets.BC_API_KEY }}
