@@ -55,7 +55,7 @@ resource "azurerm_subnet" "subnet1" {
 
 module "virtual_machines" {
 
-  source   = "./modules/virtual_machine"
+  source   = "./modules/virtual_machines"
   for_each = local.virtual_machines
 
   vm_name   = each.key
@@ -64,5 +64,4 @@ module "virtual_machines" {
   rg_name   = each.value.resource_group
   subnet_id = each.value.subnet_id
   prefix    = local.prefix
-
 }
