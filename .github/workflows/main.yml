@@ -22,15 +22,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Run Scan on IaC files in the repository
-        uses: prisma-cloud-shiftleft/iac-scan-action@v1
-        id: iac-scan
+    - name: Run Prisma Cloud
+        uses: bridgecrewio/checkov-action@master
+        id: prisma-cloud
         with:
           prisma_api_url: 'https://api3.prismacloud.io'
           api-key: ${{ secrets.BC_API_KEY }}
-          asset_name: 'terraformCLI'
-          template_type: 'TF'
-          template_version: '0.13'
           
     - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
