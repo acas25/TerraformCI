@@ -26,11 +26,12 @@ jobs:
         uses: prisma-cloud-shiftleft/iac-scan-action@v1
         id: iac-scan
         with:
-          prisma_api_url: 'https://api.prismacloud.io'
+          prisma_api_url: 'https://api3.prismacloud.io'
           api-key: ${{ secrets.BC_API_KEY }}
           asset_name: 'terraformCLI'
           template_type: 'TF'
           template_version: '0.13'
+          
     - name: Upload SARIF file
         uses: github/codeql-action/upload-sarif@v1
         if: success() || failure()
