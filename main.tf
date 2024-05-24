@@ -29,7 +29,8 @@ locals {
   subnet1_id = azurerm_subnet.subnet1.id
   virtual_machines = {
     "vm1" = { size = local.vm_size1, location = local.location1, resource_group = local.rg1, subnet_id = local.subnet1_id },
-    "vm2" = { size = local.vm_size1, location = local.location1, resource_group = local.rg1, subnet_id = local.subnet1_id }
+    "vm2" = { size = local.vm_size1, location = local.location1, resource_group = local.rg1, subnet_id = local.subnet1_id },
+    "vm3" = { size = local.vm_size1, location = local.location1, resource_group = local.rg1, subnet_id = local.subnet1_id }
   }
 }
 
