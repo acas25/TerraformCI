@@ -25,8 +25,9 @@ jobs:
     - name: Run Prisma Cloud
       uses: bridgecrewio/checkov-action@master
       id: prisma-cloud
+      env:
+        PRISMA_API_URL: https://api3.prismacloud.io
       with:
-        prisma_api_url: 'https://api3.prismacloud.io'
         api-key: ${{ secrets.BC_API_KEY }}
           
     - name: Upload SARIF file
