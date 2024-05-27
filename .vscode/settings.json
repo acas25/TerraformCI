@@ -1,5 +1,5 @@
 {
-    "prismaCloud.accessKey": "AWS_AC",
-    "prismaCloud.secretKey": "AWS_KY",
-    "prismaCloud.prismaURL": "PRISMA_URL"
+    "prismaCloud.accessKey": ${{ secrets.AWS_AC }},
+    "prismaCloud.secretKey": ${{ secrets.AWS_KY }},
+    "prismaCloud.prismaURL": ${{ secrets.PRISMA_URL }}
 }
