@@ -22,15 +22,17 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: Run Prisma Cloud
-      uses: bridgecrewio/checkov-action@v12
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Run Prisma Cloud 
       id: prisma-cloud
+      uses: bridgecrewio/checkov-action@master
       env:
         PRISMA_API_URL: https://api4.prismacloud.io
       with:
         api-key: ${{ secrets.BC_API_KEY }}
-        use_enforcement_rules: true
-          
+        
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v3
       if: success() || failure()
@@ -38,20 +40,20 @@ jobs:
         sarif_file: results.sarif
         category: prisma-cloud
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+  # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+  # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
 
-    # Generates an execution plan for Terraform
+  # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -input=false
 
-      # Build or change infrastructure according to Terraform configuration files
+    # Build or change infrastructure according to Terraform configuration files
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
