@@ -24,7 +24,7 @@ jobs:
         PRISMA_API_URL: https://api4.prismacloud.io
       with:
         use_enforcement_rules: true
-        api-key: ${{ secrets.BC_API_KEY }}
+        bc-api-key: ${{ secrets.BC_API_KEY }}
         
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v3
