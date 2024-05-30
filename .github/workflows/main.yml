@@ -21,7 +21,7 @@ jobs:
       id: prisma-cloud
       uses: bridgecrewio/checkov-action@master
       env:
-        PRISMA_API_URL:https://api4.prismaclous.io
+        PRISMA_API_URL: https://api4.prismaclous.io
       with:
         api-key: ${{ secrets.BC_API_KEY }}
        
