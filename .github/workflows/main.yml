@@ -15,8 +15,8 @@ jobs:
     steps:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
-      uses: actions/checkout@v3
-
+    uses: actions/checkout@v3
+    
     - name: Run Prisma Cloud
       uses: bridgecrewio/checkov-action@master
       id: prisma-cloud
