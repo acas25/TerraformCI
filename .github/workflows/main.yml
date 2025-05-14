@@ -4,10 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths: '**.tf'
+workflow_dispatch:
 
 #permissions:
 #  contents: write
-
+#
 env:
   CORTEX_API_KEY: ${{secrets.CORTEX_API_KEY}}
   CORTEX_API_KEY_ID: ${{secrets.CORTEX_API_KEY_ID}}
